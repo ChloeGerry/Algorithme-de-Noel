@@ -68,7 +68,7 @@ randomGiftsButton.addEventListener("click", () => {
             let isEveryonehasReceiveddGift = true;
 
             for (let j = 0; j < guests.length; j++) {
-                if (guests[j].hasGiven === false || guests[j].hasReceived === false) {
+                if (!guests[j].hasGiven || !guests[j].hasReceived) {
                     isEveryonehasReceiveddGift = false;
                 }
             }
