@@ -6,32 +6,32 @@ const guests = [
     {
         firstName : "Dorian",
         hasGiven : false,
-        hasReceive : false
+        hasReceived : false
     },
     {
         firstName : "Chloé",
         hasGiven : false,
-        hasReceive : false
+        hasReceived : false
     },
     {
         firstName : "Yann",
         hasGiven : false,
-        hasReceive : false
+        hasReceived : false
     },
     {
         firstName : "Marie",
         hasGiven : false,
-        hasReceive : false
+        hasReceived : false
     },
     {
         firstName : "Isabelle",
         hasGiven : false,
-        hasReceive : false
+        hasReceived : false
     },
     {
         firstName : "André",
         hasGiven : false,
-        hasReceive : false
+        hasReceived : false
     }
 ]
 
@@ -45,7 +45,7 @@ randomGiftsButton.addEventListener("click", () => {
         giftsResults.innerHTML = "";
         for (let j = 0; j < guests.length; j++) {
             guests[j].hasGiven = false;
-            guests[j].hasReceive = false;
+            guests[j].hasReceived = false;
         }
     }
 
@@ -58,23 +58,23 @@ randomGiftsButton.addEventListener("click", () => {
         let personWhoReceiveIndex = Math.floor(Math.random() * guests.length);
 
         const calculPerPersonn = () => {
-            if (guests[personnWhoGiveIndex].hasGiven !== true && guests[personWhoReceiveIndex].hasReceive !== true) {
+            if (guests[personnWhoGiveIndex].hasGiven !== true && guests[personWhoReceiveIndex].hasReceived !== true) {
                 guests[personnWhoGiveIndex].hasGiven = true;
-                guests[personWhoReceiveIndex].hasReceive = true;
+                guests[personWhoReceiveIndex].hasReceived = true;
             }
         }
 
         const stop = () => {
-            let isEveryoneHasReceivedGift = true;
+            let isEveryonehasReceiveddGift = true;
 
             for (let j = 0; j < guests.length; j++) {
-                if (guests[j].hasGiven === false || guests[j].hasReceive === false) {
-                    isEveryoneHasReceivedGift = false;
+                if (guests[j].hasGiven === false || guests[j].hasReceived === false) {
+                    isEveryonehasReceiveddGift = false;
                 }
             }
 
             for (let j = 0; j < guests.length; j++) {
-                if (guests[j].hasGiven === false && guests[j].hasReceive === false) {
+                if (guests[j].hasGiven === false && guests[j].hasReceived === false) {
                     isSomeoneOutCounter++;
                 }
             }
@@ -83,13 +83,13 @@ randomGiftsButton.addEventListener("click", () => {
                 reset();
             }
 
-            if (isEveryoneHasReceivedGift) {
+            if (isEveryonehasReceiveddGift) {
                 finished = true;
             }
         }
 
         if (guests[personnWhoGiveIndex].hasGiven === false && 
-            guests[personWhoReceiveIndex].hasReceive === false &&
+            guests[personWhoReceiveIndex].hasReceived === false &&
             personnWhoGiveIndex !== personWhoReceiveIndex) {
             calculPerPersonn();
             giftsResults.innerHTML = giftsResults.innerHTML +
