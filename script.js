@@ -54,10 +54,8 @@ randomGiftsButton.addEventListener("click", () => {
     while (!finished) {
         i++;
         let isSomeoneOutCounter = 0;
-        let firstRandomNumber = Math.random() * guests.length;
-        let personnWhoGive = Math.floor(firstRandomNumber);
-        let secondRandomNumber = Math.random() * guests.length;
-        let personWhoReceive = Math.floor(secondRandomNumber);
+        let personnWhoGive = Math.floor(Math.random() * guests.length);
+        let personWhoReceive = Math.floor(Math.random() * guests.length);
 
         const calculPerPersonn = () => {
             if (guests[personnWhoGive].hasGiven === true || guests[personWhoReceive].hasReceive === true) {
