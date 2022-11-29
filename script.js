@@ -58,9 +58,7 @@ randomGiftsButton.addEventListener("click", () => {
         let personWhoReceiveIndex = Math.floor(Math.random() * guests.length);
 
         const calculPerPersonn = () => {
-            if (guests[personnWhoGiveIndex].hasGiven === true || guests[personWhoReceiveIndex].hasReceive === true) {
-    
-            } else {
+            if (guests[personnWhoGiveIndex].hasGiven !== true && guests[personWhoReceiveIndex].hasReceive !== true) {
                 guests[personnWhoGiveIndex].hasGiven = true;
                 guests[personWhoReceiveIndex].hasReceive = true;
             }
