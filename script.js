@@ -1,4 +1,3 @@
-const buttonWrapper = document.querySelector(".button__Wrapper");
 const randomGiftsButton = document.querySelector(".button__randomGifts");
 const giftsResults = document.querySelector(".button__giftsResults");
 
@@ -54,24 +53,24 @@ randomGiftsButton.addEventListener("click", () => {
     while (!finished) {
         i++;
         let isSomeoneOutCounter = 0;
-        let personnWhoGiveIndex = Math.floor(Math.random() * guests.length);
-        let personWhoReceiveIndex = Math.floor(Math.random() * guests.length);
-        let guestWhoGive = guests[personnWhoGiveIndex];
-        let guestWhoReceive = guests[personWhoReceiveIndex];
+        const personnWhoGiveIndex = Math.floor(Math.random() * guests.length);
+        const personWhoReceiveIndex = Math.floor(Math.random() * guests.length);
+        const guestWhoGive = guests[personnWhoGiveIndex];
+        const guestWhoReceive = guests[personWhoReceiveIndex];
 
         const updatePersonStatus = () => {
-            if (guestWhoGive.hasGiven !== true && guestWhoReceive.hasReceived !== true) {
+            if (!guestWhoGive.hasGiven && !guestWhoReceive.hasReceived) {
                 guestWhoGive.hasGiven = true;
                 guestWhoReceive.hasReceived = true;
             }
         }
 
         const stopLoopIfEveryoneHasReceivedGift = () => {
-            let isEveryonehasReceiveddGift = true;
+            let isEveryonehasReceivedGift = true;
 
             for (let j = 0; j < guests.length; j++) {
                 if (!guests[j].hasGiven || !guests[j].hasReceived) {
-                    isEveryonehasReceiveddGift = false;
+                    isEveryonehasReceivedGift = false;
                 }
             }
 
@@ -85,7 +84,7 @@ randomGiftsButton.addEventListener("click", () => {
                 reset();
             }
 
-            if (isEveryonehasReceiveddGift) {
+            if (isEveryonehasReceivedGift) {
                 finished = true;
             }
         }
