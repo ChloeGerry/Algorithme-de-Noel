@@ -54,15 +54,15 @@ randomGiftsButton.addEventListener("click", () => {
     while (!finished) {
         i++;
         let isSomeoneOutCounter = 0;
-        let personnWhoGive = Math.floor(Math.random() * guests.length);
-        let personWhoReceive = Math.floor(Math.random() * guests.length);
+        let personnWhoGiveIndex = Math.floor(Math.random() * guests.length);
+        let personWhoReceiveIndex = Math.floor(Math.random() * guests.length);
 
         const calculPerPersonn = () => {
-            if (guests[personnWhoGive].hasGiven === true || guests[personWhoReceive].hasReceive === true) {
+            if (guests[personnWhoGiveIndex].hasGiven === true || guests[personWhoReceiveIndex].hasReceive === true) {
     
             } else {
-                guests[personnWhoGive].hasGiven = true;
-                guests[personWhoReceive].hasReceive = true;
+                guests[personnWhoGiveIndex].hasGiven = true;
+                guests[personWhoReceiveIndex].hasReceive = true;
             }
         }
 
@@ -90,12 +90,12 @@ randomGiftsButton.addEventListener("click", () => {
             }
         }
 
-        if (guests[personnWhoGive].hasGiven === false && 
-            guests[personWhoReceive].hasReceive === false &&
-            personnWhoGive !== personWhoReceive) {
+        if (guests[personnWhoGiveIndex].hasGiven === false && 
+            guests[personWhoReceiveIndex].hasReceive === false &&
+            personnWhoGiveIndex !== personWhoReceiveIndex) {
             calculPerPersonn();
             giftsResults.innerHTML = giftsResults.innerHTML +
-            " " + guests[personnWhoGive].firstName + " offre un cadeau à " + guests[personWhoReceive].firstName + "<br />";
+            " " + guests[personnWhoGiveIndex].firstName + " offre un cadeau à " + guests[personWhoReceiveIndex].firstName + "<br />";
         }
 
         stop();
