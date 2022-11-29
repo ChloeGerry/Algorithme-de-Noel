@@ -57,14 +57,14 @@ randomGiftsButton.addEventListener("click", () => {
         let personnWhoGiveIndex = Math.floor(Math.random() * guests.length);
         let personWhoReceiveIndex = Math.floor(Math.random() * guests.length);
 
-        const calculPerPersonn = () => {
+        const updatePersonStatus = () => {
             if (guests[personnWhoGiveIndex].hasGiven !== true && guests[personWhoReceiveIndex].hasReceived !== true) {
                 guests[personnWhoGiveIndex].hasGiven = true;
                 guests[personWhoReceiveIndex].hasReceived = true;
             }
         }
 
-        const stop = () => {
+        const stopLoopIfEveryoneHasReceivedGift = () => {
             let isEveryonehasReceiveddGift = true;
 
             for (let j = 0; j < guests.length; j++) {
@@ -91,11 +91,11 @@ randomGiftsButton.addEventListener("click", () => {
         if (guests[personnWhoGiveIndex].hasGiven === false && 
             guests[personWhoReceiveIndex].hasReceived === false &&
             personnWhoGiveIndex !== personWhoReceiveIndex) {
-            calculPerPersonn();
+            updatePersonStatus();
             giftsResults.innerHTML = giftsResults.innerHTML +
             " " + guests[personnWhoGiveIndex].firstName + " offre un cadeau à " + guests[personWhoReceiveIndex].firstName + "<br />";
         }
 
-        stop();
+        stopLoopIfEveryoneHasReceivedGift();
     }
 })
