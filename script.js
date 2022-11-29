@@ -40,10 +40,10 @@ randomGiftsButton.addEventListener("click", () => {
     let i = 0;
 
     const reset = () => {
+        finished = false;
+        i = 0;
+        giftsResults.innerHTML = "";
         for (let j = 0; j < guests.length; j++) {
-            finished = false;
-            i = 0;
-            giftsResults.innerHTML = "";
             guests[j].hasGiven = false;
             guests[j].hasReceive = false;
         }
@@ -51,7 +51,7 @@ randomGiftsButton.addEventListener("click", () => {
 
     reset();
 
-    while (finished === false) {
+    while (!finished) {
         i++;
         let isSomeoneOutCounter = 0;
         let firstRandomNumber = Math.random() * guests.length;
